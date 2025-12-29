@@ -15,4 +15,4 @@ COPY . .
 
 # Запускаем бота
 CMD ["python", "main.py"]
-# ssh -i C:\Users\user\PycharmProjects\TGchannelBot\.ssh\gcp_key dilshodbek@34.134.194.196
+
