@@ -68,7 +68,7 @@
 
 3.  **Запустите через Docker Compose:**
     ```bash
-    docker-compose up -d
+    docker-compose up -d --build
     ```
 
 ---
