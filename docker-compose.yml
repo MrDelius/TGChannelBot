@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  bot:
+    image: jdelius/tg-assistant-bot:latest
+    container_name: tg_assistant_bot
+    restart: unless-stopped
+
+    # Подключаем к внешней сети (как в ваших проектах)
+    networks:
+      - net
+
+    # Подстановка переменных окружения
+    environment:
+      BOT_TOKEN: ${BOT_TOKEN}
+      ADMIN_ID: ${ADMIN_ID}
+      TG_EMOJI: ${TG_EMOJI}
+      DATABASE_PATH: /app/data/bot_data.db
+      LOG_LEVEL: ${LOG_LEVEL:-INFO}
+
+    # Используем именованный том для базы данных
+    volumes:
+      - db_data:/app/data
+
+# Определение сетей (вне образа)
+networks:
+  net:
+    driver: bridge
+
+# Определение томов (вне образа)
+volumes:
+  db_data:
